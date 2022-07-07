@@ -17,9 +17,9 @@ def Feistel_cipher(user_input, key):
   # for each item in my input I want to loop through
   for item in input:
     temp_value = item
+    list_of_encoded.append(temp_value)
     for keys in List_of_Keys:
       temp_value = encoder_function(temp_value,keys)
-      print("Item is ",item," and key is ",keys,"and tmpval is ",temp_value)
   output = ascii_to_binary(list_of_encoded, 'binary')
   output = string_to_ascii(output)
   output = string_to_list_or_vice_versa(output)
