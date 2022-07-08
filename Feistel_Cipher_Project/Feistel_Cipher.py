@@ -10,17 +10,18 @@ def feistel_cipher(input:str, keys:list):
   Next it convert the input to binary
   After everything is in binary a loop goes through and encrypts each binary char n times where n = the number of keys
   it takes the back for and the front four digits of the binary and swaps them and appends them to a new list 
+  it then converts 
   """
-  #initialize the key value and convert the key to 4 dig binary
+  #initialize the list of keys value and convert the keys to 4 dig binary using numpy 
   int_keys = keys
   binary_keys = []
   for key in int_keys:
     binary_keys.append(np.binary_repr(key,width=4))
-  #convert message string to 8 bit binary
+  #take user input of type string and convert using our text to binary functions from a string to binary values for each char
   input_char = string_to_list_or_vice_versa(input)
   input_int = string_to_ascii(input_char)
   input_binary = ascii_to_binary(input_int)
-  #encryption round
+  # do the cool stuff aka encrypt stuff
   encrypted_char_bin = []
   for char in input_binary:
     temp_char = char
@@ -28,11 +29,13 @@ def feistel_cipher(input:str, keys:list):
       temp_char = enc_dec_round(temp_char,key)
     temp_char_swap = temp_char[4:]+temp_char[:4]
     encrypted_char_bin.append(temp_char_swap)
-  #convert 8 bit binary cipher to string
+  #convert 8 bit binary cipher back to string
   enc_char_int = ascii_to_binary(encrypted_char_bin)
   enc_char_list = string_to_ascii(enc_char_int)
   enc_string = string_to_list_or_vice_versa(enc_char_list)
   return enc_string
+
+  
 #test 1
 test_1_keys = [0,1,5,6,7,8]
 test_1_keys_keys_reverse = np.flip(test_1_keys)
