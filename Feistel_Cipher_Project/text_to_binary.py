@@ -43,9 +43,6 @@ def string_to_ascii(user_input):
         newList.append(chr(char))
   return newList
 
-# Test inputs for professor
-#print(string_to_ascii(['h','e','l','l','o',' ','w','o','r','l','d']))
-#print(string_to_ascii([104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]))
 
 def string_to_list_or_vice_versa(user_input):
   '''
@@ -58,6 +55,3 @@ def string_to_list_or_vice_versa(user_input):
   if type(user_input) is list:
     newString = ''.join(user_input)
     return (newString)
-
-#string_to_list_or_vice_versa("hello")
-#string_to_list_or_vice_versa(['h','e','l', 'l', 'o'])

@@ -1,5 +1,5 @@
 import numpy as np
-from Feistel_encoder import enc_dec_round
+from Feistel_encoder import enc_dec_fun
 from text_to_binary import string_to_list_or_vice_versa, string_to_ascii, ascii_to_binary
 
 #main feistel cipher function
@@ -10,7 +10,7 @@ def feistel_cipher(input:str, keys:list):
   Next it convert the input to binary
   After everything is in binary a loop goes through and encrypts each binary char n times where n = the number of keys
   it takes the back for and the front four digits of the binary and swaps them and appends them to a new list 
-  it then converts 
+  it then converts back to a string and returns it
   """
   #initialize the list of keys value and convert the keys to 4 dig binary using numpy 
   int_keys = keys
@@ -26,7 +26,7 @@ def feistel_cipher(input:str, keys:list):
   for char in input_binary:
     temp_char = char
     for key in binary_keys:
-      temp_char = enc_dec_round(temp_char,key)
+      temp_char = enc_dec_fun(temp_char,key)
     temp_char_swap = temp_char[4:]+temp_char[:4]
     encrypted_char_bin.append(temp_char_swap)
   #convert 8 bit binary cipher back to string

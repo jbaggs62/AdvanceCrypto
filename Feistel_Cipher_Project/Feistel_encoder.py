@@ -1,6 +1,6 @@
 import numpy as np
 #encryption and decryption round
-def enc_dec_round(input_string, key):
+def enc_dec_fun(input_string, key):
 #split the L0 and R0
   Left_inital = input_string[:4]
   Right_inital = input_string[4:]
